@@ -1,0 +1,24 @@
+{
+  "name": "web-api-node",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "Lint": "eslint src/** test/** --fix"
+  },
+  "repository": "https://github.com/JoaoRabelo98/web-api-node.git",
+  "author": "JoaoRabelo98 <joaorabello99@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "jest": "23.6.0",
+    "nodemon": "^1.19.3",
+    "supertest": "3.3.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
