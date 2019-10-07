@@ -33,8 +33,8 @@ Para rodar você precisa ter instalado em sua máquina:
 
 ## Instalação
 
-    $ git clone https://github.com/JoaoRabelo98/backend-tindev.git
-    $ cd backend-tindev
+    $ git clone https://github.com/JoaoRabelo98/web-api-node.git
+    $ cd web-api-node
     $ yarn install
 
 ## Rodando o projeto
