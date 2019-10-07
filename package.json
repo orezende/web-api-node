@@ -5,7 +5,9 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint src/** test/** --fix",
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon src/server.js",
+    "secure-mode": "jest --watch --verbose=true",
+    "migration": "knex"
   },
   "repository": "https://github.com/JoaoRabelo98/web-api-node.git",
   "author": "JoaoRabelo98 <joaorabello99@gmail.com>",
@@ -15,10 +17,14 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
     "jest": "23.6.0",
-    "nodemon": "^1.19.3"
+    "nodemon": "^1.19.3",
+    "supertest": "^4.0.2"
   },
   "dependencies": {
+    "consign": "^0.1.6",
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "knex": "0.15.2",
+    "pg": "^7.12.1"
   }
 }

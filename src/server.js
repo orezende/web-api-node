@@ -1,11 +1,3 @@
-const express = require('express');
-const cors = require('cors');
-const routes = require('./routes');
+const app = require('./app');
 
-const server = express();
-
-server.use(cors());
-server.use(express.json());
-server.use(routes);
-
-server.listen(3001);
+app.listen(3001);
