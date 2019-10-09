@@ -6,9 +6,11 @@ module.exports = {
     return res.send(users);
   },
   async store(req, res) {
-    const result = await userService.store(req.body);
-
-    if (result.error) return res.status(400).json(result);
-    return res.status(201).json(result);
+    try {
+      const result = await userService.store(req.body);
+      return res.status(201).json(result);
+    } catch (err) {
+      return res.status(400).json({ error: err.message });
+    }
   },
 };
