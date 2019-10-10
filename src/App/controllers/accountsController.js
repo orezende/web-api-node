@@ -1,25 +1,38 @@
 const accountService = require('../services/accountsService');
 
 module.exports = {
-  async store(req, res) {
+  async store(req, res, next) {
     try {
       const response = await accountService.store(req.body);
-      return res.status(201).json(response);
+      res.status(201).json(response);
     } catch (err) {
-      return res.status(400).json({ error: err.message });
+      next(err);
     }
   },
-  async list(req, res) {
-    if (req.query.id) {
-      return res.json(await accountService.list({ id: req.query.id }));
+  // TODO melhorar esse metodo
+  async list(req, res, next) {
+    try {
+      if (req.query.id) {
+        return res.json(await accountService.list({ id: req.query.id }));
+      }
+      return res.json(await accountService.list());
+    } catch (err) {
+      return next(err);
     }
-    return res.json(await accountService.list());
   },
-  async update(req, res) {
-    return res.json(await accountService.update(req.query.id, req.body));
+  async update(req, res, next) {
+    try {
+      res.json(await accountService.update(req.query.id, req.body));
+    } catch (err) {
+      next(err);
+    }
   },
-  async delete(req, res) {
-    const accDeleted = await accountService.delete(req.query.id);
-    return res.json({ accDeleted, warning: 'Conta excluida com sucesso' });
+  async delete(req, res, next) {
+    try {
+      const accDeleted = await accountService.delete(req.query.id);
+      res.json({ accDeleted, warning: 'Conta excluida com sucesso' });
+    } catch (err) {
+      next(err);
+    }
   },
 };
